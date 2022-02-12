@@ -1,0 +1,42 @@
+name: Nokol
+version: 0.0.0.1
+github: "rabbihossain/nokol"
+license: MIT
+author: "Rabbi Hossain"
+maintainer: "me@2hr.me"
+copyright: "2022 Rabbi Hossain"
+
+extra-source-files:
+  - README.md
+  - ChangeLog.md
+
+data-files:
+  - data/*/*/*.json
+
+# Metadata used when publishing your package
+synopsis: Fake data generator for Haskell
+category: Testing
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description: Please see the README on GitHub at <https://github.com/githubuser/nokol#readme>
+
+dependencies:
+  - base >= 4.7 && < 5
+
+library:
+  source-dirs: src
+  dependencies:
+    - random
+
+tests:
+  Nokol-test:
+    main: Spec.hs
+    source-dirs: test
+    ghc-options:
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+    dependencies:
+      - Nokol
